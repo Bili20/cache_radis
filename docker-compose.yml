@@ -23,5 +23,15 @@ services:
       ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
       ME_CONFIG_BASICAUTH: 'false'
 
+  redis:
+    container_name: cache
+    image: redis
+    ports:
+      - '6379:6379'
+    valumes:
+      - redis-data:/data
+
 volumes:
   mongo-data:
+  redis-data:
+    driver: local
